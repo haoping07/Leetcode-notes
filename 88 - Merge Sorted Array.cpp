@@ -2,7 +2,7 @@
  88. Merge Sorted Array (Easy)
  
  How: 
-    Merge sort - O(n)
+    Merge sort (two pointers) - O(n)
     Two arrays are sorted, merge array2 into array1. Do it in array1 from back to front to avoid overwriting the 
     array1's elements which are going to compare with array2's element.
 */
