@@ -1,7 +1,7 @@
 /*
  206. Reverse Linked List (Easy)
  
- How: 
+ Notes: 
     Two pointers & Prenode - O(n)
     Make pointer prev points to nullptr, then:
     1. Make backup pointer points to head->next

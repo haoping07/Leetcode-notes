@@ -1,7 +1,7 @@
 /*
  19. Remove Nth Node From End of List (Medium)
 
- How:
+ Notes:
     fast-slow pointer - O(n)
     Use two pointers to scan the list, when the first pointer points to the Nth node, the second pointer move
     backward from the head and follow the first pointer in the following iteration. When the first pointer

@@ -1,7 +1,7 @@
 /*
  283. Move Zeroes (Easy)
 
- How:
+ Notes:
     Two pointers - O(n)
     Make two pointers, left and right, point to the first element of given array. While right < array.size(), do: 
     if the right's value is not 0, then swap(left, right), move left & right forward, if 0, move right forward

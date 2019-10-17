@@ -1,7 +1,7 @@
 /*
  141. Linked List Cycle (Easy)
 
- How:
+ Notes:
     fast-slow pointer
     1. Make slow pointer points to node
     2. Make fast pointer points to node->next

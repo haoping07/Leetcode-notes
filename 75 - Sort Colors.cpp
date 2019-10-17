@@ -1,7 +1,7 @@
 /*
  75. Sort Colors (Medium)
 
- How:
+ Notes:
     Multiple pointers - O(n)
     Make three pointers, left, mid and right, point to the array most left, most left and most right element.
     Iterate from the first element in given array. If the element's value is 0, swap(left, mid), left++, mid++. 

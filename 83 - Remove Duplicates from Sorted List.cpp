@@ -1,7 +1,7 @@
 /*
  83. Remove Duplicates from Sorted List (Easy)
 
- How:
+ Notes:
     1. fast-slow pointer - O(n)
     Use Two pointers to scan the list, if the two pointers' value are the same, move fast pointer backward, else, slow
     pointer's next points to fast pointer node, slow pointer points to fast pointer's node.

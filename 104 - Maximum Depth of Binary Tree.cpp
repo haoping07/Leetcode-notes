@@ -1,7 +1,7 @@
 /*
  104. Maximum Depth of Binary Tree
  Easy
- How: Recursive, BFS
+ Notes: Recursive, BFS
 */
 
 // Recursive

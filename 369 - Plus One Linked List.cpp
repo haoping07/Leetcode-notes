@@ -1,7 +1,7 @@
 /*
  369. Plus One Linked List (Medium)
 
- How:
+ Notes:
     Two pointers & Prenode - O(2n)
     Use two pointers, slow and fast, to scan the list. Fast pointer first scan the list, if the node's value
     is not 9, move slow pointer to that node. When fast pointer reach the last node, if last node is not 9,

@@ -1,7 +1,7 @@
 /*
  92. Reverse Linked List II (Medium)
 
- How:
+ Notes:
     Two pointers & Prenode - O(?)
     Record (m - 1)th and (n + 1)th nodes, reverse the nodes in the range and then connect them back.
 */

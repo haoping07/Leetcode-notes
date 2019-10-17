@@ -1,7 +1,7 @@
 /*
  24. Swap Nodes in Pairs (Medium)
 
- How:
+ Notes:
     Prenode method - O(n)
     Make a dummy pointer points to head, while head->next and head->next->next not nullptr, do:
     1. Make a backup pointer points to head->next->next

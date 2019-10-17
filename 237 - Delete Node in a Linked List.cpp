@@ -1,7 +1,7 @@
 /*
  237. Delete Node in a Linked List (Easy)
 
- How:
+ Notes:
     Brute force - O(n)
     Only the node that needs to be deleted is given, we replace this node by its next node connect to its next next node.
     Pay attention to the corner cases: 1. Node doesn't exist 2. Node is the last node

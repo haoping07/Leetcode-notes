@@ -2,7 +2,7 @@
  189. Rotate Array
  Easy
 
- How: 
+ Notes: 
  Rotate three time
 */
 

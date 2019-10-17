@@ -1,7 +1,7 @@
 /*
  82. Remove Duplicates from Sorted List II (Medium)
 
- How: 
+ Notes: 
     fast-slow pointer - O(n)
     Use two pointers to scan the list, slow pointers always point to the previous node of the first duplicate node,
     fast pointer iterates through the duplicate node and stop at the last duplicate node. If no duplicate node in 

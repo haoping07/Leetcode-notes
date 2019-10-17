@@ -1,7 +1,7 @@
 /*
  328. Odd Even Linked List (medium)
 
- How:
+ Notes:
     Two pointers - O(n)
     Set two pointers point to the odd and even nodes respectively, after finish linking all odd and 
     even nodes, link the head of the even node to the end of the odd node
