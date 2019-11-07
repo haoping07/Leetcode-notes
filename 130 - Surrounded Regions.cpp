@@ -3,10 +3,10 @@
 
  Notes:
 	* When encounter a need to see nodes around a node, we can pre-defined 'directions' 
-	  array (see line 10, 11)
+	  array (see line 15, 16)
 	* 'Inside out' BFS is ok but needs extra space to record traversed elements and flip
 	  them if BFS end in edge.
-   ** Use 'Outside in' BFS from the edge element that is not 'X', traverses and flips the 
+	* Use 'Outside in' BFS from the edge element that is not 'X', traverses and flips the 
       elements to 'V' temporary. At the end, flips all remains 'O' to 'X' and 'V' to 'O'
 */
 
