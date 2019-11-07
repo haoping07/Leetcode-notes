@@ -7,7 +7,7 @@
 	* 'Inside out' BFS is ok but needs extra space to record traversed elements and flip
 	  them if BFS end in edge.
 	* Use 'Outside in' BFS from the edge element that is not 'X', traverses and flips the 
-      elements to 'V' temporary. At the end, flips all remains 'O' to 'X' and 'V' to 'O'
+	  elements to 'V' temporary. At the end, flips all remains 'O' to 'X' and 'V' to 'O'
 */
 
 class Solution {
