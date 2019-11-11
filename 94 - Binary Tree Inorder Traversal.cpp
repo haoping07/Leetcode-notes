@@ -3,7 +3,7 @@
  
  Notes:
     Tree trasverse - BFS, DFS. Use DFS here. O(n)
-    Trasverse and push left child to stack until the end. Pop and visit the top node in stack,
+    Traverse and push left child to stack until the end. Pop and visit the top node in stack,
     if the node have right child, push it into stack. 
 */
 

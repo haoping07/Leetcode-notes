@@ -2,7 +2,7 @@
  144. Binary Tree Preorder Traversal (Medium)
 
  Notes:
-    Tree trasverse - BFS or DFS. Use DFS here o(n)
+    Tree traverse - BFS or DFS. Use DFS here o(n)
     Approach 1: Trasverse left child till the end, then check the right child
     Approach 2: In each iteration, push current node's val to result, then check whether if 
     left / right child exist. If yes, push the right child then left child into the stack
