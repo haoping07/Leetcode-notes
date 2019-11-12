@@ -3,6 +3,29 @@
  Easy
 */
 
+// Recursive
+class Solution {
+public:
+    void InvertNode(TreeNode* root)
+    {
+        if (root)
+        {
+            TreeNode* tmp = root->left;
+            root->left = root->right;
+            root->right = tmp;
+
+            InvertNode(root->left);
+            InvertNode(root->right);
+        }
+    }
+
+    TreeNode* invertTree(TreeNode* root) {
+        InvertNode(root);
+        return root;
+    }
+};
+
+// BFS
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
