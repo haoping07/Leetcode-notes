@@ -1,8 +1,30 @@
 /*
- 199. Binary Tree Right Side View
- Medium
+ 199. Binary Tree Right Side View (Medium)
+
 */
 
+// Recursive DFS 
+class Solution {
+public:
+	vector<int> res;
+
+	void DFS(TreeNode* root, int depth)
+	{
+		if (!root) return;
+		if (depth > res.size())
+			res.push_back(root->val);
+		DFS(root->left, depth + 1);
+		DFS(root->right, depth + 1);
+		res[depth - 1] = root->val;
+	}
+
+	vector<int> rightSideView(TreeNode* root) {
+		DFS(root, 1);
+		return res;
+	}
+};
+
+// Iterative BFS
 class Solution {
 public:
     vector<int> rightSideView(TreeNode* root) {
