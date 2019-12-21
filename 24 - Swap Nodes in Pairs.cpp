@@ -12,21 +12,31 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
+        
+        // Recursion
+        if (!head || !head->next) return head;
+        ListNode* next = head->next;
+        head->next = swapPairs(head->next->next);
+        next->next = head;
+        return next;
+        
+        // Iteration
+        /*
+        if (!head) return nullptr;
         ListNode* dummy = new ListNode(0);
-        ListNode* cur = dummy;
-        while (head && head->next)
+        ListNode* cur = head;
+        ListNode* prev = dummy;
+        while (cur && cur->next)
         {
-            ListNode* tmp = head->next->next;
-            cur->next = head->next;
-            cur = cur->next;
-            cur->next = head;
-            cur = cur->next;
+            ListNode* next = cur->next->next;
+            prev->next = cur->next;
+            prev->next->next = cur;
+            prev = cur;
             cur->next = nullptr;
-            head = tmp;
+            cur = next;
         }
-        // Link remaining node, if any
-        if (head)
-            cur->next = head;
+        if (cur) prev->next = cur;
         return dummy->next;
+        */
     }
 };
