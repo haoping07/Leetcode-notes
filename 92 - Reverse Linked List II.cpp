@@ -2,11 +2,11 @@
  92. Reverse Linked List II (Medium)
 
  Notes:
-    Two pointers & Prenode - O(?)
+    Two pointers & Prenode
     Record (m - 1)th and (n + 1)th nodes, reverse the nodes in the range and then connect them back.
 */
 
-// Approach 1
+// Approach 1 - O(n)
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
