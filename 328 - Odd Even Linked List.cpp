@@ -7,6 +7,27 @@
     even nodes, link the head of the even node to the end of the odd node
 */
 
+// Updated: shorter approach
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        if (!head || !head->next) return head;
+        ListNode* odd = head;
+        ListNode* even = head->next;
+        ListNode* bk = even;
+        while (even && even->next)
+        {
+            odd->next = even->next;
+            odd = odd->next;
+            even->next = odd->next;
+            even = even->next;
+        }
+        odd->next = bk;
+        return head;
+    }
+};
+
+/*
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
@@ -31,3 +52,4 @@ public:
         return head;
     }
 };
+*/
