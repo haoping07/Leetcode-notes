@@ -6,6 +6,44 @@
     Record (m - 1)th and (n + 1)th nodes, reverse the nodes in the range and then connect them back.
 */
 
+// Approach 1
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int m, int n) {
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode* pre = dummy;
+        ListNode* cur = head;
+        ListNode* reversePre = nullptr;
+        ListNode* reverseCur = nullptr;
+        for (int i = 1; i <= n; i++)
+        {
+            if (i < m)
+            {
+                pre = cur;
+                cur = cur->next;
+            }
+            else
+            {
+                if (i == m)
+                {
+                    reversePre = pre;
+                    reverseCur = cur;
+                }
+                ListNode* next = reverseCur->next;
+                reverseCur->next = reversePre;
+                reversePre = reverseCur;
+                reverseCur = next;
+            }
+        }
+        pre->next = reversePre;
+        cur->next = reverseCur;
+        return dummy->next;
+    }
+};
+
+// Approach 2
+/*
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
@@ -46,4 +84,4 @@ public:
         }
     }
 };
-
+*/
