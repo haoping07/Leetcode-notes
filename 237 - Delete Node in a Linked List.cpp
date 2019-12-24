@@ -1,23 +1,17 @@
 /*
- 237. Delete Node in a Linked List (Easy)
+ 237. Delete Node in a Linked List (E)
 
  Notes:
-    Brute force - O(n)
-    Only the node that needs to be deleted is given, we replace this node by its next node connect to its next next node.
-    Pay attention to the corner cases: 1. Node doesn't exist 2. Node is the last node
+    Replace the given node value with the next node value, link its next to next next node.
+    Don't forget to delete the node using 'delete'
 */
 
 class Solution {
 public:
     void deleteNode(ListNode* node) {
-        if (!node)
-            return;
-        if (!node->next)
-        {
-            node = nullptr;
-            return;
-        }
+        ListNode* tmp = node->next;
         node->val = node->next->val;
-        node->next = node->next->next;
+        node->next = node->next->next;        
+        delete tmp;
     }
 };
