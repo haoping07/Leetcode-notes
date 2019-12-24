@@ -38,3 +38,31 @@ public:
         return dummy->next;
     }
 };
+
+
+// Hard to read
+/*
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        head = dummy;
+        while (head->next && head->next->next)
+        {
+            if (head->next->val == head->next->next->val)
+            {
+                int val = head->next->val;
+                while (head->next && head->next->val == val)
+                {
+                    ListNode* tmp = head->next;
+                    head->next = head->next->next;
+                    delete tmp;
+                }
+            }
+            else
+                head = head->next;
+        }
+        return dummy->next;
+    }
+};
+*/
