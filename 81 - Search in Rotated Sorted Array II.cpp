@@ -3,6 +3,7 @@
  Medium
 */
 
+// Approach 1
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {
@@ -36,6 +37,40 @@ public:
         }
         if (nums[l] == target || nums[r] == target)
             return true;
+        return false;
+    }
+};
+
+// Approach 2
+class Solution {
+public:
+    bool search(vector<int>& nums, int target) {
+        int size = nums.size();
+        if (size == 0) return false;
+        int l = 0, r = size - 1;
+        int m = 0;
+        while (l <= r)
+        {
+            m = l + (r - l) / 2;
+            if (target == nums[m])
+                return true;
+            if (nums[l] < nums[m])
+            {
+                if (target >= nums[l] && target < nums[m])
+                    r = m - 1;
+                else
+                    l = m + 1;
+            }
+            else if (nums[l] > nums[m])
+            {
+                if (target > nums[m] && target <= nums[r])
+                    l = m + 1;
+                else
+                    r = m - 1;
+            }
+            else
+                l++;
+        }
         return false;
     }
 };
