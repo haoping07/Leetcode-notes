@@ -9,7 +9,8 @@
              vector;
     Use DFS: If the depth of the current node is greater than the result vector size, push_back a 
              vector contains current node's value. Else, put the current node's value into the
-             corresponding index of result vector; 
+             corresponding index of result vector;
+             [Imagine this method as 'filling the stairs'] 
 */
 
 // BFS
