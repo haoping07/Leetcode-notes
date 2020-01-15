@@ -5,6 +5,9 @@
     Tree trasverse - BFS, DFS. Use DFS here. O(n)
     Traverse and push left child to stack until the end. Pop and visit the top node in stack,
     if the node have right child, push it into stack. 
+
+    * Ref 144: The Approach 2 in Q.144 can be used here, but it will need to track the visited node to know when
+               to push the node value to the result vector.
 */
 
 
