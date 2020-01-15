@@ -6,6 +6,9 @@
     Approach 1: Trasverse left child till the end, then check the right child
     Approach 2: In each iteration, push current node's val to result, then check whether if 
     left / right child exist. If yes, push the right child then left child into the stack
+
+    * If you want to address the current node in current round, use Approach 1
+    * If you want to address the previous node in current round, use Approach 2
 */
 
 // Approach 1
