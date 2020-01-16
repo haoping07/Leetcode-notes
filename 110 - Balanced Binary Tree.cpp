@@ -1,6 +1,10 @@
 /*
- 110. Balanced Binary Tree
- Easy
+ 110. Balanced Binary Tree (E)
+
+ Notes: 
+    Height-balanced binary tree is defined as:
+    A binary tree in which the left and right subtrees of every node differ 
+    in **height** by no more than 1.
 */
 
 class Solution {
