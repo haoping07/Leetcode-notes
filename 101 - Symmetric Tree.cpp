@@ -1,6 +1,8 @@
 /*
- 101. Symmetric Tree (Easy)
+ 101. Symmetric Tree (E)
 
+  Notes:
+     Ref. 100
 */
 
 // BFS
