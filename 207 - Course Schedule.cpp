@@ -35,14 +35,9 @@ public:
  
     bool DFS(int cur, vector<int>& status)
     {
-        // 0 : 未探索
-        // 1 : 正在探索
-        // 2 : 該點下全鄰居探索完
-        // 如果探索鄰居發現有人是1, 代表有迴圈, 不可能修完
         if (status[cur] == 1)
             return true;
 
-        // 該鄰居以被探索過沒問題, 跳出
         if (status[cur] == 2)
             return false;
  
@@ -53,10 +48,8 @@ public:
             if (DFS(neighbor, status))
                 return true;
         }
- 
+
         status[cur] = 2;
-        
-        // 探索完全鄰居, 返回2表示探索完
         return false;
     }        
  
