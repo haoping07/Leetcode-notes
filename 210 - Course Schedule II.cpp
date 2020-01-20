@@ -1,6 +1,9 @@
 /*
- 210. Course Schedule II
- Medium
+ 210. Course Schedule II (M)
+
+ Notes:
+    Ref. 207
+ 
 */
 
 class Solution {
