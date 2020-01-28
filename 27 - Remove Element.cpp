@@ -1,20 +1,20 @@
 /*
- 27. Remove Element
- Easy
+ 27. Remove Element (E)
+    
+    Notes:
+       T: O(n)
+       S: O(1)
 */
 
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
-        int p = 0;
+        int start = 0;
         for (int i = 0; i < nums.size(); i++)
         {
-            if (nums[i] != val)
-            {
-                nums[p] = nums[i];
-                p++;
-            }
+            if (val != nums[i])
+                nums[start++] = nums[i];
         }
-        return p;
+        return start;
     }
 };
