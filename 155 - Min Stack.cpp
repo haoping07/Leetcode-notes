@@ -1,34 +1,72 @@
 /*
- 155. Min Stack (Easy)
+ 155. Min Stack (E)
 
  Notes:
-    Use two vector to address stack and minimum data
+    Use two vector/Stack to address elements and minimum element
+    T: O(n)
+    S: O(n)
 */
 
+// Vector Approach
 class MinStack {
 private:
-    vector<int> stack;
-    vector<int> minArr;
+    vector<int> stk;
+    vector<int> minStk;
     
 public:
     void push(int x) {
-        stack.push_back(x);
-        if (minArr.size())
-            minArr.push_back(min(x, minArr.back()));
+        stk.push_back(x);
+        if (minStk.size())
+            minStk.push_back(min(x, minStk.back()));
         else
-            minArr.push_back(x);
+            minStk.push_back(x);
     }
     
     void pop() {
-        stack.pop_back();
-        minArr.pop_back();
+        stk.pop_back();
+        minStk.pop_back();
     }
     
     int top() {
-        return stack.back();
+        return stk.back();
     }
     
     int getMin() {
-        return minArr.back();
+        return minStk.back();
+    }
+};
+
+// Stack STL Approach
+class MinStack {
+private:
+    stack<int> stk, minStk;
+
+public:
+    /** initialize your data structure here. */
+    MinStack() {
+
+    }
+
+    void push(int x) {
+        stk.push(x);
+
+        if (minStk.empty() || x <= minStk.top())
+            minStk.push(x);
+    }
+
+    void pop() {
+        int top = stk.top();
+        stk.pop();
+
+        if (top == minStk.top())
+            minStk.pop();
+    }
+
+    int top() {
+        return stk.top();
+    }
+
+    int getMin() {
+        return minStk.top();
     }
 };
