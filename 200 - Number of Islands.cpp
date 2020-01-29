@@ -1,12 +1,73 @@
 /*
- 200. Number of Islands (Medium)
+ 200. Number of Islands (M)
 
  Notes:
-	* When encounter a need to see nodes around a node, we can pre-defined a 'directions' array (see line 18)
+	When encounter a need to see nodes around a node, we can pre-defined a 'directions' array (see line 18)
 	Scan the array, if the value is '1', then use BFS to iterate its neighbors. The total island
 	number is the number of times BFS operated.
+	  T: O(4 * row * col)
+	  S: O(n)
 */
 
+// Approach 1
+class Solution {
+public:
+    const int dx[4] = { 1, 0, -1, 0 };
+    const int dy[4] = { 0, 1, 0, -1 };
+
+    class Position
+    {
+    public:
+        int row;
+        int col;
+    };
+
+    int numIslands(vector<vector<char>>& grid) {
+        if (grid.size() == 0) return 0;
+        int island = 0;
+        for (int row = 0; row < grid.size(); row++)
+        {
+            for (int col = 0; col < grid[0].size(); col++)
+            {
+                if (grid[row][col] == '1')
+                {
+                    BFS(grid, row, col);
+                    island++;
+                }
+            }
+        }
+        return island;
+    }
+
+    void BFS(vector<vector<char>>& grid, int row, int col)
+    {
+        Position pos, pos_next;
+        pos.row = row;
+        pos.col = col;
+        queue<Position> todo;
+        todo.push(pos);
+        grid[row][col] = '0';
+        while (!todo.empty())
+        {
+            pos = todo.front();
+            todo.pop();
+
+            for (int i = 0; i < 4; i++)
+            {
+                pos_next.row = pos.row + dy[i];
+                pos_next.col = pos.col + dx[i];
+
+                if (pos_next.row >= 0 && pos_next.row < grid.size() && pos_next.col >= 0 && pos_next.col < grid[0].size() && grid[pos_next.row][pos_next.col] == '1')
+                {
+                    grid[pos_next.row][pos_next.col] = '0';
+                    todo.push(pos_next);
+                }
+            }
+        }
+    }
+};
+
+// Approach 2
 class Solution {
 public:
 	int numIslands(vector<vector<char>>& grid) {
