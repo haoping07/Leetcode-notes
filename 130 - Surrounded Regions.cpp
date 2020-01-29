@@ -1,5 +1,5 @@
 /*
- 130. Surrounded Regions (Medium)
+ 130. Surrounded Regions (M)
 
  Notes:
 	* When encounter a need to see nodes around a node, we can pre-defined 'directions' 
