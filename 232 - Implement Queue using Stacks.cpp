@@ -1,5 +1,5 @@
 /*
- 232. Implement Queue using Stacks (Easy)
+ 232. Implement Queue using Stacks (E)
  
  Notes:
     Store values "upside down" in stack to simulate the queue.
