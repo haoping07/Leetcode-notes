@@ -1,6 +1,5 @@
 /*
- 189. Rotate Array
- Easy
+ 189. Rotate Array (E)
 
  Notes: 
  A1:
