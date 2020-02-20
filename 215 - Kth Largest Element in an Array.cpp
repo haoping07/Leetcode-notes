@@ -2,20 +2,24 @@
  215. Kth Largest Element in an Array (M)
 
  Notes:
-    1. Priority Queue
-    Push each elements into priority queue, if queue size is greater than k, pop it. 
-    The result wil be the top element of queue
-      T: O(logn)
-      S: O(logn)?
+    Approach 1 : Priority Queue
+    1. Create a priority queue (smallest on top)
+    2. Push each node into priority queue (see this as min heap)
+      2.1. If priority queue's size exceeds k, pop once
+    3. At the end, return priority queue top node
+    Time: O(nlogk), priority_queue::push/pop operation is logn [see https://en.cppreference.com/w/cpp/container/priority_queue/push]
+    Space: O(k), only store k number in peiority queue 
 
-    2. Quick sort
-    Solution from basketwangCoding [https://www.youtube.com/watch?v=zyskis1Gw0c]
-    Use Quick sort to sort/get element position one by one, if position is equal to K, then that is the answer 
-      T: O(logn)    worst O(n^2): a sorted data
-      S: O(n)?
+    Approach 2 : Quick sort (Solution from basketwangCoding - https://www.youtube.com/watch?v=zyskis1Gw0c)
+    1. Use Quick sort to get the position of each sorted node
+    2. If the position + 1 is larger than k_small, move the left pointer to position + 1
+       If the position + 1 is smaller than k_small, move the right pointer to position - 1
+       If the position + 1 is equal to k_small, then that is the answer
+    Time: O(nlogk), worst O(n^2), a sorted data
+    Space: O(n)
 */
 
-// Approach 1 : Priority Queue
+// *Approach 1 : Priority Queue
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
@@ -31,7 +35,7 @@ public:
 };
 
 
-// Approach 2 : Quick Sort
+// *Approach 2 : Quick Sort
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
@@ -40,7 +44,7 @@ public:
         int left = 0, right = size - 1;
         int k_small = size - k + 1;
 
-        while (true)
+        while (1)
         {
             int pos = partition(nums, left, right);
             if (k_small == pos + 1)
@@ -52,7 +56,7 @@ public:
         }
 
         // Fake return 
-        return 0;
+        return -1;
     }
 
     void swap(vector<int>& nums, int left, int right)
