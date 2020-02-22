@@ -1,17 +1,38 @@
 /*
- 144. Binary Tree Preorder Traversal (Medium)
+ 144. Binary Tree Preorder Traversal (M)
 
  Notes:
-    Tree traverse - BFS or DFS. Use DFS here o(n)
-    Approach 1: Trasverse left child till the end, then check the right child
-    Approach 2: In each iteration, push current node's val to result, then check whether if 
-    left / right child exist. If yes, push the right child then left child into the stack
+    Approach 1 : 
+    Time: O(n)
+    Space: O(n)
 
-    * If you want to address the current node in current round, use Approach 1
-    * If you want to address the previous node in current round, use Approach 2
+    Approach 2: Iteration
+    Time: O(n)
+    Space: O(n)
+
 */
 
-// Approach 1
+// Approach 1 : Recursion
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        preorder(root);
+        return res;
+    }
+
+    void preorder(TreeNode* root)
+    {
+        if (!root) return;
+        res.push_back(root->val);
+        preorder(root->left);
+        preorder(root->right);
+    }
+
+private:
+    vector<int> res;
+};
+
+// Approach 2 : Iteration 1
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
@@ -37,7 +58,7 @@ public:
     }
 };
 
-// Approach 2
+// Approach 2 : Iteration 2
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
