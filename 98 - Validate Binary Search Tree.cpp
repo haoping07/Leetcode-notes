@@ -4,18 +4,19 @@
  Notes:
     Approach 1 : Inorder characteristic
     Inorder traversal result is sorted.
-      T: O(2n)    // n is node number
-      S: O(n)    // n is node number
+    Time: O(n + n), n is node number
+    S: O(n), n is node number
     
     Approach 2 : Divide and Conquer
     Record each node as its child node's Maximum / Minimum edge.
     Use [Node] to record the max / min edge because sometimes the givien node's value
-    is excceed INT_MAX / INT_MIN
-      T: O(n)    // n is node number
-      S: O(n)    // n is node number
+    excceed INT_MAX / INT_MIN
+    Time: O(n), n is node number
+    Space: O(n), n is node number
+
 */
 
-// Approach 1: Inorder characteristic
+// Approach 1 : Inorder characteristic
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
@@ -41,21 +42,18 @@ private:
     vector<int> listNode;
 };
 
-// Approach 2: Divide and Conquer
+// Approach 2 : Divide and Conquer
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-        return VBST(root, nullptr, nullptr);
+        return DAC(root, nullptr, nullptr);
     }
 
-    bool VBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
+    bool DAC(TreeNode* root, TreeNode* low, TreeNode* high)
     {
         if (!root) return true;
-        if (minNode != nullptr && root->val <= minNode->val)
-            return false;
-        if (maxNode != nullptr && root->val >= maxNode->val)
-            return false;
-        return VBST(root->left, minNode, root) &&
-            VBST(root->right, root, maxNode);
+        if (high && root->val >= high->val) return false;
+        if (low && root->val <= low->val) return false;
+        return DAC(root->left, low, root) && DAC(root->right, root, high);
     }
 };
