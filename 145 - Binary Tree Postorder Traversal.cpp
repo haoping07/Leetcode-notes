@@ -1,16 +1,43 @@
 /*
- 145. Binary Tree Postorder Traversal (Hard)
+ 145. Binary Tree Postorder Traversal (H)
 
  Notes:
-    Tree traversal - BFS, DFS. Use DFS here O(n)
-    Four steps: left child, peek parent, right child, parent
-    Step 1 -> Left child: Traverse to the end of the left child.
-    Step 2 -> Peek parent: We need to access right child before parent node so we traverse to 
-                           right child by 'peeking' parent node then access its right child.
-    Step 3 -> right child: If right child have children, run step 1 ~ 4 on it;
-    Step 4 -> After visited right child, now it is time to access parent
+    Approach 1 : Recursion
+    Time: O(n)
+    Space: O(n)
+
+    Approach 2 : Iteration
+    BFS iteration
+    1. Traverse to the end of the left child.
+    2. Peek parent
+      2.1. If parent->right exist and havn't been visited yet, move root to parent->right and goto Step 1
+           If parent->right doesn't exist, push parent to result vector and mark it visited
+    Time: O(n)
+    Space: O(n)
+
 */
 
+// Approach 1 : Recursion
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        Postorder(root);
+        return res;
+    }
+
+    void Postorder(TreeNode* root)
+    {
+        if (!root) return;
+        Postorder(root->left);
+        Postorder(root->right);
+        res.push_back(root->val);
+    }
+
+private:
+    vector<int> res;
+};
+
+// Approach 2 : Iteration
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
