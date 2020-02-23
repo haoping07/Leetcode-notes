@@ -1,45 +1,54 @@
 /*
- 226. Invert Binary Tree
- Easy
+ 226. Invert Binary Tree (E)
+
+ Notes:
+   Approach 1 : Recursion
+   Time: O(n)
+   Space: O(n)
+
+   Approach 2 : Iteration
+   Time: O(n)
+   Space: O(n)
+
 */
 
-// Recursive
+// Approach 1 : Recursion
 class Solution {
 public:
-    void InvertNode(TreeNode* root)
+    TreeNode* invertTree(TreeNode* root) {
+        DFSInvert(root);
+        return root;
+    }
+
+    void DFSInvert(TreeNode* root)
     {
         if (root)
         {
             TreeNode* tmp = root->left;
             root->left = root->right;
             root->right = tmp;
-
-            InvertNode(root->left);
-            InvertNode(root->right);
+            DFSInvert(root->left);
+            DFSInvert(root->right);
         }
-    }
-
-    TreeNode* invertTree(TreeNode* root) {
-        InvertNode(root);
-        return root;
     }
 };
 
-// BFS
+// Approach 1 : Iteration
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
         queue<TreeNode*> todo;
         todo.push(root);
+        TreeNode* entry = nullptr;
         while (!todo.empty())
         {
-            TreeNode* entry = todo.front();
+            entry = todo.front();
             todo.pop();
             if (entry)
             {
                 todo.push(entry->left);
                 todo.push(entry->right);
- 
+
                 TreeNode* tmp = entry->left;
                 entry->left = entry->right;
                 entry->right = tmp;
