@@ -8,6 +8,7 @@
 
 */
 
+// Approach 1 :
 class Solution {
 public:
     bool isSubsequence(string s, string t) {
