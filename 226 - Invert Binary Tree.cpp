@@ -2,13 +2,13 @@
  226. Invert Binary Tree (E)
 
  Notes:
-   Approach 1 : Recursion
-   Time: O(n)
-   Space: O(n)
+ Approach 1 : Recursion
+ Time: O(n)
+ Space: O(n)
 
-   Approach 2 : Iteration
-   Time: O(n)
-   Space: O(n)
+ Approach 2 : Iteration
+ Time: O(n)
+ Space: O(n)
 
 */
 

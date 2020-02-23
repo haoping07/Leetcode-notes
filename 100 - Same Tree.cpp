@@ -2,13 +2,13 @@
  100. Same Tree (E)
 
  Notes:
-   Approach 1 : BFS
-   Time: O(n)
-   Space: O(n)
+ Approach 1 : BFS
+ Time: O(n)
+ Space: O(n)
 
-   Approach 2 : DFS
-   Time: O(n)
-   Space: O(n)
+ Approach 2 : DFS
+ Time: O(n)
+ Space: O(n)
 
 */
 

@@ -2,17 +2,17 @@
  98. Validate Binary Search Tree (M)
  
  Notes:
-    Approach 1 : Inorder characteristic
-    Inorder traversal result is sorted.
-    Time: O(n + n), n is node number
-    S: O(n), n is node number
+ Approach 1 : Inorder characteristic
+ Inorder traversal result is sorted.
+ Time: O(n + n), n is node number
+ S: O(n), n is node number
     
-    Approach 2 : Divide and Conquer
-    Record each node as its child node's Maximum / Minimum edge.
-    Use [Node] to record the max / min edge because sometimes the givien node's value
-    excceed INT_MAX / INT_MIN
-    Time: O(n), n is node number
-    Space: O(n), n is node number
+ Approach 2 : Divide and Conquer
+ Record each node as its child node's Maximum / Minimum edge.
+ Use [Node] to record the max / min edge because sometimes the givien node's value
+ excceed INT_MAX / INT_MIN
+ Time: O(n), n is node number
+ Space: O(n), n is node number
 
 */
 

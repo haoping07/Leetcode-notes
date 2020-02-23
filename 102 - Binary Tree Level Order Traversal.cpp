@@ -2,20 +2,20 @@
  102. Binary Tree Level Order Traversal (M)
 
  Notes:
-   Approach 1 : BFS
-   Before each level: the number of node in queue is the number of node in that level.
-   In each level: push the left and right child into queue, if any.
-   After each level: push the vector that contains all nodes in that level into result vector.
-   Time: O(n)
-   Space: O(n)
+ Approach 1 : BFS
+ Before each level: the number of node in queue is the number of node in that level.
+ In each level: push the left and right child into queue, if any.
+ After each level: push the vector that contains all nodes in that level into result vector.
+ Time: O(n)
+ Space: O(n)
 
-   Approach 2 : DFS
-   If the depth of the current node is greater than the result vector size, push_back a 
-   vector contains current node's value. Else, put the current node's value into the
-   corresponding index of result vector.
-   [Imagine this method as 'fill the stairs']
-   Time: O(n)
-   Space: O(n)
+ Approach 2 : DFS
+ If the depth of the current node is greater than the result vector size, push_back a 
+ vector contains current node's value. Else, put the current node's value into the
+ corresponding index of result vector.
+ [Imagine this method as 'fill the stairs']
+ Time: O(n)
+ Space: O(n)
 
 */
 

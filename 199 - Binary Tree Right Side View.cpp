@@ -2,17 +2,17 @@
  199. Binary Tree Right Side View (M)
  
  Notes:
-   Approach 1 : BFS
-   Always only store the right-most node.
-   Time: O(n)
-   Space: O(n)
+ Approach 1 : BFS
+ Always only store the right-most node.
+ Time: O(n)
+ Space: O(n)
 
-   Approach 2 : DFS
-   A little bit tricky, if traverse depth > vector's size, push node val into vector, and first recusive the
-   right node then left node to ensure the vector always have the right-most node. (left node isn't important 
-   if there have right node in the same depth)
-   Time: O(n)
-   Space: O(n)
+ Approach 2 : DFS
+ A little bit tricky, if traverse depth > vector's size, push node val into vector, and first recusive the
+ right node then left node to ensure the vector always have the right-most node. (left node isn't important 
+ if there have right node in the same depth)
+ Time: O(n)
+ Space: O(n)
 
 */
 

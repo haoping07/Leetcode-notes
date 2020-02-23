@@ -2,14 +2,14 @@
  347. Top K Frequent Elements (M)
 
  Notes:
-    Apporach 1 : Priority Queue (NO BETTER THAN O(nlogn))
-    Count the freq of each element, push the elements into priority queue and get the top k freq elements 
-    Time: O(nlogk)
-    Space: O(k)
+ Apporach 1 : Priority Queue (NO BETTER THAN O(nlogn))
+ Count the freq of each element, push the elements into priority queue and get the top k freq elements 
+ Time: O(nlogk)
+ Space: O(k)
 
-    Apporach 2 : Bucket sort (NOT WORK IN SOME CASE)
-    Build a bucket, freq as key, val as value. Get k elements from right to left of bucket
-    Time: O(n), if use hashmap for bucket
+ Apporach 2 : Bucket sort (NOT WORK IN SOME CASE)
+ Build a bucket, freq as key, val as value. Get k elements from right to left of bucket
+ Time: O(n), if use hashmap for bucket
 
 */
 

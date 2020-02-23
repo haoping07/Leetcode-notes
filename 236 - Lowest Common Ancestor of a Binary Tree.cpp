@@ -3,10 +3,10 @@
  236. Lowest Common Ancestor of a Binary Tree (M)
 
  Notes:
-   Approach 1 : Postorder traversal
-   Use Postorder traversal. If found, return to parent. 
-   Time: O(n), traverse all nodes
-   Space: O(n)
+ Approach 1 : Postorder traversal
+ Use Postorder traversal. If found, return to parent. 
+ Time: O(n), traverse all nodes
+ Space: O(n)
 
 */
 
