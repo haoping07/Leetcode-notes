@@ -1,5 +1,10 @@
 /*
- 100. Same Tree (Easy)
+ 100. Same Tree (E)
+
+ Notes:
+   Approach 1 : BFS
+   Time: O(n)
+   Space: O(n)
 
 */
 
@@ -7,27 +12,26 @@ class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
         queue<TreeNode*> todo;
-        TreeNode* pp = nullptr, * qq = nullptr;
         todo.push(p);
         todo.push(q);
         while (!todo.empty())
         {
-            pp = todo.front();
+            p = todo.front();
             todo.pop();
-            qq = todo.front();
+            q = todo.front();
             todo.pop();
 
-            if (pp == nullptr && qq == nullptr)
+            if (p == nullptr && q == nullptr)
                 continue;
-            if (pp == nullptr || qq == nullptr)
+            if (p == nullptr || q == nullptr)
                 return false;
-            if (pp->val != qq->val)
+            if (p->val != q->val)
                 return false;
 
-            todo.push(pp->left);
-            todo.push(qq->left);
-            todo.push(pp->right);
-            todo.push(qq->right);
+            todo.push(p->left);
+            todo.push(q->left);
+            todo.push(p->right);
+            todo.push(q->right);
         }
         return true;
     }
