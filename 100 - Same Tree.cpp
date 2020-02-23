@@ -6,8 +6,13 @@
    Time: O(n)
    Space: O(n)
 
+   Approach 2 : DFS
+   Time: O(n)
+   Space: O(n)
+
 */
 
+// Approach 1 : BFS
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
@@ -34,5 +39,20 @@ public:
             todo.push(q->right);
         }
         return true;
+    }
+};
+
+
+// Approach 1 : DFS
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if (!p && !q)
+            return true;
+        if (!p || !q)
+            return false;
+        if (p->val != q->val)
+            return false;
+        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
     }
 };
