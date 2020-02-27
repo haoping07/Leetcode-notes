@@ -2,14 +2,15 @@
  133. Clone Graph (M)
 
  Notes:
-    1. Build a hashmap used to store corresponding original node and clone node.
-    2. DFS the node
-       1. Iterate all its neighbors, if not yet existed in hashmap, create it, DFS it, and copy it 
-          as neighbor to the clone node's neighbor list
-    T: O(V + E)   // E: enter neighbors to check if visited
-    S: O(V + E)
+ Approach 1 : Hashmap + DFS
+ Build graph with key are original node and value are copied node. Use DFS to traverse the original nodes and link
+ the copied nodes neighbors.
+ Time: O(V + E), E: enter neighbors to check if visited
+ Space: O(V)
+
 */
 
+// Approach 1 : Hashmap + DFS
 class Solution {
 public:
     Node* cloneGraph(Node* node) {
