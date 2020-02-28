@@ -2,16 +2,13 @@
  207. Course Schedule (M)
 
  Notes:
-    If cycle exist in graph, it is impossible to finish all courses.
-    Approach 1 : DFS
-    1. Build graph
-    2. Create status map and init to 0 for each node (0: unseen, 1: in DFS process, 2: finished DFS process)
-    3. DFS each nodes
-      3.1. Check status. If 1, return true (have cycle). If 2, return true (visited, ok node)
-      3.2. If unseen, set status to 1 and DFS its neighbors
-    4. If no cycle, all courses can be finished
-    T: O(n), traverse all nodes
-    S: O(n), status map
+ If cycle exist in graph, it is impossible to finish all courses.
+
+ Approach 1 : DFS
+ 1. Build graph
+ 2. DFS the graph to check if cycle exist
+ Time: O(n), traverse all nodes
+ Space: O(n), status map and graph
 
 */
 
