@@ -2,25 +2,31 @@
  310. Minimum Height Trees (M)
 
  Notes:
-    1. Build graph and count the indegree of each node
-    2. If indegree is 1, which is a leaf, push into a queue, and make it "visited"
-    3. BFS the nodes in queue
-      3.1. Cut the node which is record as "visited" yet
-      3.2. If indegree becomes one after the cut, pushes it into queue and mark it "visited" 
-    The nodes which is/are processed in the last BFS round (at most 2 nodes) is/are the answer
-      T: O(n)? n nodes to cut?
-      S: O(V + 2E)? Need to store whole tree?
+ Approach 1 : Graph
+ Ref(https://www.jiuzhang.com/solution/minimum-height-trees/#tag-other-lang-cpp)
+ 1. Build indegree, outdegree map
+ 2. Push indegree = 1 into queue and BFS it
+ 3. In each BFS round, decrement the node indegree which connects to this indegree = 1 node, if a 
+    node indegree become 1, push it into queue
+ The nodes which is/are processed in the last BFS round (at most 2 nodes) is/are the answer
+ Time: O(n)? n nodes to cut?
+ Space: O(n)? hashmap's space complexity is O(n)
+
+ Approach 2 :
+
 */
 
-// *Approach 1 : Ref from https://www.jiuzhang.com/solution/minimum-height-trees/#tag-other-lang-cpp
+// *Approach 1 : Graph
 class Solution {
 public:
     vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
-        if (n == 0 || n == 1) return { 0 };
+        if (n == 0 || n == 1 || edges.size() == 0)
+            return { 0 };
+
+        // Build indegree, outdegree map
         vector<int> indegree(n, 0);
         vector<vector<int>> outdegree(n, vector<int>());
 
-        // Build graph
         for (int i = 0; i < edges.size(); i++)
         {
             indegree[edges[i][0]]++;
@@ -29,49 +35,46 @@ public:
             outdegree[edges[i][1]].push_back(edges[i][0]);
         }
 
-        queue<int> todo;
+        // Push indegree = 1 into queue and BFS it
+        queue<int> oneDegree;
         unordered_set<int> visited;
 
-        // Push indegree = 1 node to queue
-        for (int i = 0; i < indegree.size(); i++)
+        for (int i = 0; i < n; i++)
         {
             if (indegree[i] == 1)
             {
-                todo.push(i);
+                oneDegree.push(i);
                 visited.insert(i);
             }
         }
 
-        vector<int> ans;
+        // Each BFS round cut the node, if a node indegree become 1, push to queue
+        vector<int> res;
 
-        // BFS
-        while (!todo.empty())
+        while (!oneDegree.empty())
         {
-            ans.clear();
-            int size = todo.size();
+            res.clear();
+            int size = oneDegree.size();
             for (int i = 0; i < size; i++)
             {
-                int node = todo.front();
-                todo.pop();
-                ans.push_back(node);
-                for (int j = 0; j < outdegree[node].size(); j++)
+                int n = oneDegree.front();
+                oneDegree.pop();
+                res.push_back(n);
+                for (int neighbor : outdegree[n])
                 {
-                    int sub = outdegree[node][j];
-                    if (visited.find(sub) != visited.end())
+                    if (visited.find(neighbor) != visited.end())
                         continue;
-                    indegree[sub]--;
+                    indegree[neighbor]--;
 
-                    if (indegree[sub] == 1)
-                    {
-                        todo.push(sub);
-                        visited.insert(sub);
-                    }
+                    if (indegree[neighbor] == 1)
+                        oneDegree.push(neighbor);
                 }
             }
         }
-        return ans;
+        return res;
     }
 };
+
 
 // Approach 2 : 
 class Solution {
