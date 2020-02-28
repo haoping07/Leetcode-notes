@@ -2,21 +2,20 @@
  215. Kth Largest Element in an Array (M)
 
  Notes:
-    Approach 1 : Priority Queue
-    1. Create a priority queue (smallest on top)
-    2. Push each node into priority queue (see this as min heap)
-      2.1. If priority queue's size exceeds k, pop once
-    3. At the end, return priority queue top node
-    Time: O(nlogk), priority_queue::push/pop operation is logn [see https://en.cppreference.com/w/cpp/container/priority_queue/push]
-    Space: O(k), only store k number in peiority queue 
+ Approach 1 : Priority Queue
+ 1. Create a priority queue (smallest on top), push all node into it
+ 2. If queue.size() > k, pop it
+ Time: O(nlogk), priority_queue::push/pop operation is logn [see https://en.cppreference.com/w/cpp/container/priority_queue/push]
+ Space: O(k), only store k number in priority queue 
 
-    Approach 2 : Quick sort (Solution from basketwangCoding - https://www.youtube.com/watch?v=zyskis1Gw0c)
-    1. Use Quick sort to get the position of each sorted node
-    2. If the position + 1 is larger than k_small, move the left pointer to position + 1
-       If the position + 1 is smaller than k_small, move the right pointer to position - 1
-       If the position + 1 is equal to k_small, then that is the answer
-    Time: O(nlogk), worst O(n^2), a sorted data
-    Space: O(n)
+ Approach 2 : Quick sort (Solution from basketwangCoding - https://www.youtube.com/watch?v=zyskis1Gw0c)
+ 1. Use Quick sort to get the position of each sorted node
+ 2. If the position + 1 is larger than k_small, move the left pointer to position + 1
+    If the position + 1 is smaller than k_small, move the right pointer to position - 1
+    If the position + 1 is equal to k_small, then that is the answer
+ Time: O(nlogk), worst O(n^2), a sorted data
+ Space: O(n)
+
 */
 
 // *Approach 1 : Priority Queue
@@ -24,9 +23,10 @@ class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
         priority_queue<int, vector<int>, greater<int>> todo;
-        for (int i = 0; i < nums.size(); i++)
+
+        for (const int n : nums)
         {
-            todo.push(nums[i]);
+            todo.push(n);
             if (todo.size() > k)
                 todo.pop();
         }
