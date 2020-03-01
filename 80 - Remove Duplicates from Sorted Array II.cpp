@@ -1,35 +1,38 @@
 /*
- 80. Remove Duplicates from Sorted Array II
- Medium
+ 80. Remove Duplicates from Sorted Array II (M)
+ 
+ Notes:
+ Time: O(n)
+ Space: O(1)
+
 */
 
-// Pay attention to overflow!
+// Approach 1 :
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        if (nums.empty())
+        if (nums.size() == 0)
             return 0;
-        int prev = nums[0], i = -1, dup = -1;
-        for (auto n : nums)
+
+        int slow = 0;
+        int c = 1;
+
+        for (int i = 1; i < nums.size(); i++)
         {
-            if (prev == n)
+            if (nums[slow] != nums[i])
             {
-                if (dup == -1) 
-                    dup = 0;
-                else 
-                    dup++;
+                nums[++slow] = nums[i];
+                c = 1;
             }
             else
             {
-                dup = 0;
-                prev = n;
-            }
-            if (dup < 2)
-            {
-                i++;
-                nums[i] = n;
+                if (c < 2)
+                {
+                    nums[++slow] = nums[i];
+                    c++;
+                }
             }
         }
-        return i + 1;
+        return slow + 1;
     }
 };
