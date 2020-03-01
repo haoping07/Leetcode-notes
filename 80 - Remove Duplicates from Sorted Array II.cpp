@@ -2,6 +2,7 @@
  80. Remove Duplicates from Sorted Array II (M)
  
  Notes:
+ Approach 1 :
  Time: O(n)
  Space: O(1)
 
