@@ -1,9 +1,10 @@
 /*
  27. Remove Element (E)
     
-    Notes:
-       T: O(n)
-       S: O(1)
+ Notes:
+ Time: O(n)
+ Space: O(1)
+
 */
 
 class Solution {
