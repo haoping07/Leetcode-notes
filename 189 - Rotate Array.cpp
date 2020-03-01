@@ -2,18 +2,19 @@
  189. Rotate Array (E)
 
  Notes: 
- A1:
- Roate one by one
-   T: O(n)
-   S: O(1)
+ Approach 1 : Exchange
+ Exchange one by one
+ Time: O(n)
+ Space: O(1)
 
- A2:
+ Approach 2 : Split and Reverse (tricky)
  Rotate three time
-   T: O(n)
-   S: O(1)
+ Time: O(n)
+ Space: O(1)
+
 */
 
-// Approach 1
+// Approach 1 : 
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
@@ -41,7 +42,7 @@ public:
     }
 };
 
-// Approach 2
+// Approach 2 :
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
