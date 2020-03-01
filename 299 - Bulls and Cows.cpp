@@ -2,13 +2,14 @@
  299. Bulls and Cows (E)
 
  Notes:
-    Use hashmap (array) and two For-loop.
-    First loop (Count bull): iterate each letter in string secret and guess. 
-    If two letters are same, bull++. Count the appear of letter and store in the hashmap
-    Second loop (Count cow): iterate two letter-count array and take the minumum in each. 
-    The total amount of the count - bull is cow
-    T: O(n)
-    S: O(1)
+ Approach 1 :
+ Use array and two For-loop.
+ 1. Iterates secret and guess at the same time. If two letter are the same, bull++.
+    Counts the appear of letter and stores to the array by its ASCII as key. 
+ 2. Iterates two arrays at the same time, take the minumum in each and adds to the cow;
+ * The amount of cow is all exist numbers (whether the position is wrong) - position is correct (bull)
+ Time: O(n)
+ Space: O(1)
 
 */
 
