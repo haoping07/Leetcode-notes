@@ -5,7 +5,7 @@
  Approach 1 : Recursion + BFS
  Use the middle element in vector as root in each round to build the tree
  Time: O(n)
- Space: (n)
+ Space: O(n)
 
 */
 
@@ -28,3 +28,4 @@ public:
         return newNode;
     }
 };
+
