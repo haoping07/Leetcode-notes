@@ -1,40 +1,66 @@
 /*
  103. Binary Tree Zigzag Level Order Traversal (M)
  
- Notes:
-    T: O(nodes + 2 * depth / 2)     // (2 * depth / 2): Each level at most two nodes, 
-                                    // only even level (half of the depth) needs reverse 
-    S: O(n)
-    Use a count to track if the current level is even or odd. If even, reverse the vector in that level.
+ Approach 1 : iteration
+ Time: O(n)
+ Space: O(n)
+
+ Approach 2 : recursion
+ Time: O(n)
+ Space: O(n)
+
 */
 
+// Approahc 1 : 
 class Solution {
 public:
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
         if (!root) return {};
-        queue<TreeNode*> todo;
-        todo.push(root);
         vector<vector<int>> res;
         int level = 0;
+        queue<TreeNode*> todo;
+        todo.push(root);
         while (!todo.empty())
         {
             int size = todo.size();
-            vector<int> tmp;
+            vector<int> sub;
             level++;
             for (int i = 0; i < size; i++)
             {
                 root = todo.front();
                 todo.pop();
-                tmp.push_back(root->val);
-                if (root->left)
-                    todo.push(root->left);
-                if (root->right)
-                    todo.push(root->right);
+                sub.push_back(root->val);
+                if (root->left) todo.push(root->left);
+                if (root->right) todo.push(root->right);
             }
             if (level % 2 == 0)
-                reverse(tmp.begin(), tmp.end());
-            res.push_back(tmp);
+                reverse(sub.begin(), sub.end());
+            res.push_back(sub);
         }
         return res;
+    }
+};
+
+
+// Approahc 2 : 
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        vector<vector<int>> res;
+        DFS(root, 1, res);
+        for (int i = 1; i < res.size(); i += 2)
+            reverse(res[i].begin(), res[i].end());
+        return res;
+    }
+
+    void DFS(TreeNode* root, int depth, vector<vector<int>>& res)
+    {
+        if (!root) return;
+        if (res.size() < depth)
+            res.push_back({ root->val });
+        else
+            res[depth - 1].push_back(root->val);
+        DFS(root->left, depth + 1, res);
+        DFS(root->right, depth + 1, res);
     }
 };
