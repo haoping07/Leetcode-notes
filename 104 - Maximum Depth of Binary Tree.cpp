@@ -16,9 +16,7 @@
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
-        if (!root)
-            return 0;
-
+        if (!root) return 0;
         queue<TreeNode*> todo;
         todo.push(root);
         int count = 0;
@@ -30,10 +28,8 @@ public:
             {
                 root = todo.front();
                 todo.pop();
-                if (root->left)
-                    todo.push(root->left);
-                if (root->right)
-                    todo.push(root->right);
+                if (root->left) todo.push(root->left);
+                if (root->right) todo.push(root->right);
             }
         }
         return count;
