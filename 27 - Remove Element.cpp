@@ -1,7 +1,7 @@
 /*
  27. Remove Element (E)
-    
- Notes:
+ 
+ Approach 1 :
  Time: O(n)
  Space: O(1)
 
