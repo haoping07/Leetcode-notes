@@ -7,6 +7,7 @@
 
 */
 
+// Approach 1 :
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
