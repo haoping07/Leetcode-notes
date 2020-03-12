@@ -1,7 +1,6 @@
 /*
  199. Binary Tree Right Side View (M)
  
- Notes:
  Approach 1 : BFS
  Always only store the right-most node.
  Time: O(n)
@@ -20,9 +19,7 @@
 class Solution {
 public:
     vector<int> rightSideView(TreeNode* root) {
-        if (!root)
-            return {};
-
+        if (!root) return {};
         vector<int> res;
         queue<TreeNode*> todo;
         todo.push(root);
@@ -33,14 +30,10 @@ public:
             {
                 root = todo.front();
                 todo.pop();
-
-                if (root->left)
-                    todo.push(root->left);
-                if (root->right)
-                    todo.push(root->right);
-
                 if (i == size - 1)
                     res.push_back(root->val);
+                if (root->left) todo.push(root->left);
+                if (root->right) todo.push(root->right);
             }
         }
         return res;
@@ -56,15 +49,12 @@ public:
         DFS(root, 1, res);
         return res;
     }
-
+    
     void DFS(TreeNode* root, int depth, vector<int>& res)
     {
-        if (!root)
-            return;
-
-        if (depth > res.size())
+        if (!root) return;
+        if (res.size() < depth)
             res.push_back(root->val);
-
         DFS(root->right, depth + 1, res);
         DFS(root->left, depth + 1, res);
     }
