@@ -1,7 +1,6 @@
 /*
  107. Binary Tree Level Order Traversal II (E)
 
- Notes:
  Approach 1 : BFS
  Time: O(n)
  Space: O(n)
