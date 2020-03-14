@@ -1,11 +1,13 @@
 /*
  26. Remove Duplicates from Sorted Array (E)
 
- Notes:
-    T: O(n)
-    S: O(1)
+ Approach 1 :
+ Time: O(n)
+ Space: O(1)
+
 */
 
+// Approach 1 : 
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
