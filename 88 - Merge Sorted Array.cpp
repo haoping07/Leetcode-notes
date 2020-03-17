@@ -1,12 +1,28 @@
 /*
- 88. Merge Sorted Array (Easy)
+ 88. Merge Sorted Array (E)
  
- Notes: 
-    Merge sort (two pointers) - O(n)
-    Two arrays are sorted, merge array2 into array1. Do it in array1 from back to front to avoid overwriting the 
-    array1's elements which are going to compare with array2's element.
+ Approach 1 : two pointers
+ Time: O(n)
+ Space: O(1)
+
 */
 
+/* Approach 1.1 */
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int pos = m + n - 1;
+        m--;
+        n--;
+        while (m >= 0 && n >= 0)
+            nums1[pos--] = nums1[m] > nums2[n] ? nums1[m--] : nums2[n--];
+        while (n >= 0)
+            nums1[pos--] = nums2[n--];
+    }
+};
+
+
+/* Approach 1.2 */
 class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
