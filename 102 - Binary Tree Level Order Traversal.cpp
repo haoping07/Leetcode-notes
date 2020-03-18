@@ -1,7 +1,6 @@
 /*
  102. Binary Tree Level Order Traversal (M)
 
- Notes:
  Approach 1 : BFS
  Before each level: the number of node in queue is the number of node in that level.
  In each level: push the left and right child into queue, if any.
@@ -19,7 +18,7 @@
 
 */
 
-// BFS
+/* Approach 1 : BFS */
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
@@ -46,7 +45,7 @@ public:
     }
 };
 
-// DFS
+/* Approach 2 : DFS */
 class Solution {
 public:
     void DFS(TreeNode* root, int depth, vector<vector<int>>& res)
