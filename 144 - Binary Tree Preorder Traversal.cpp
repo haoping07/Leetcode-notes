@@ -1,7 +1,6 @@
 /*
  144. Binary Tree Preorder Traversal (M)
 
- Notes:
  Approach 1 : Recursion
  Time: O(n)
  Space: O(n)
@@ -12,7 +11,7 @@
 
 */
 
-// Approach 1 : Recursion
+/* Approach 1 : Recursion */
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
@@ -32,7 +31,7 @@ private:
     vector<int> res;
 };
 
-// Approach 2 : Iteration 1
+/* Approach 2 : Iteration 1 */
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
@@ -58,7 +57,7 @@ public:
     }
 };
 
-// Approach 2 : Iteration 2
+/* Approach 2 : Iteration 2 */
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
