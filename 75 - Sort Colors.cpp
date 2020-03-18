@@ -1,13 +1,37 @@
 /*
- 75. Sort Colors (Medium)
+ 75. Sort Colors (M)
 
- Notes:
-    Multiple pointers - O(n)
-    Make three pointers, left, mid and right, point to the array most left, most left and most right element.
-    Iterate from the first element in given array. If the element's value is 0, swap(left, mid), left++, mid++. 
-    If 1, mid++. If 2, swap(mid, right), right--.
+ Approach 1 : Counting Sort
+ Time: O(2n)
+ Space: O(1)
+
+ Approach 2 : Three Pointers
+ Time: O(n)
+ Space: O(1)
+
 */
 
+/* Approach 1 : Counting Sort */
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        vector<int> count(3, 0);
+        for (int i : nums)
+            count[i]++;
+
+        int n = 0;
+        for (int i = 0; i < count.size(); i++)
+        {
+            while (count[i] > 0)
+            {
+                nums[n++] = i;
+                count[i]--;
+            }
+        }
+    }
+};
+
+/* Approach 2 : Three Pointers */
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
@@ -30,25 +54,3 @@ public:
         }
     }
 };
-
-
-/*
-// Pseudo code
-
-l = 0
-m = 0
-r = nums.size() - 1
-while mid <= right do
-  if nums[mid] == 0 then
-    swap(nums[mid], nums[left])
-    l++
-    r++
-  elseif nums[mid] == 1 then
-    mid++;
-  else
-    swap(mid, right)
-    right--
-  end
-end
-
-*/
