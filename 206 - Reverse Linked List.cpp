@@ -1,15 +1,17 @@
 /*
- 206. Reverse Linked List (Easy)
- 
- Notes: 
-    Two pointers & Prenode - O(n)
-    Make pointer prev points to nullptr, then:
-    1. Make backup pointer points to head->next
-    2. head->next points to prev node
-    3. Make prev pointer points to head
-    4. Make head node points to step 1 backup node
+ 206. Reverse Linked List (E)
+
+ Approach 1 : Iteration
+ Time: O(n)
+ Space: O(1)
+
+ Approach 2 : Recursion
+ Time: O(n)
+ **Space: O(n) (Can I optimize this to O(1)?)
+
 */
 
+/* Approach 1 : Iteration */
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
@@ -25,6 +27,23 @@ public:
     }
 };
 
+
+/* Approach 2 : Recursion */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if (!head) return nullptr;
+        return Rev(nullptr, head);
+    }
+
+    ListNode* Rev(ListNode* prev, ListNode* head)
+    {
+        ListNode* next = head->next;
+        head->next = prev;
+        if (!next) return head;
+        return Rev(head, next);
+    }
+};
 
 
 
