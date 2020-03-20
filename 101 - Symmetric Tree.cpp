@@ -1,19 +1,28 @@
 /*
  101. Symmetric Tree (E)
 
-  Notes:
-     Ref. 100
+ Ref. 100
+
+ Approach 1 : BFS
+ Time: O(n)
+ Space: O(n)
+
+ Approach 2 : DFS
+ Time: O(n)
+ Space: O(n)
+
 */
 
-// BFS
+/* Approach 1 : BFS */
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
         if (!root) return true;
-        TreeNode* left = nullptr, * right = nullptr;
         queue<TreeNode*> todo;
         todo.push(root->left);
         todo.push(root->right);
+        TreeNode* left = nullptr;
+        TreeNode* right = nullptr;
         while (!todo.empty())
         {
             left = todo.front();
@@ -21,12 +30,9 @@ public:
             right = todo.front();
             todo.pop();
 
-            if (left == nullptr && right == nullptr)
-                continue;
-            if (left == nullptr || right == nullptr)
-                return false;
-            if (left->val != right->val)
-                return false;
+            if (!left && !right) continue;
+            if (!left || !right) return false;
+            if (left->val != right->val) return false;
 
             todo.push(left->left);
             todo.push(right->right);
@@ -37,22 +43,19 @@ public:
     }
 };
 
-// Recursive
+/* Approach 2 : DFS */
 class Solution {
 public:
-    bool CheckMirror(TreeNode* left, TreeNode* right)
+    bool Check(TreeNode* l, TreeNode* r)
     {
-        if (left == nullptr && right == nullptr)
-            return true;
-        if (left == nullptr || right == nullptr)
-            return false;
-        if (left->val != right->val)
-            return false;
-        return CheckMirror(left->left, right->right) && CheckMirror(left->right, right->left);
+        if (!l && !r) return true;
+        if (!l || !r) return false;
+        if (l->val != r->val) return false;
+        return Check(l->left, r->right) && Check(l->right, r->left);
     }
 
     bool isSymmetric(TreeNode* root) {
         if (!root) return true;
-        return CheckMirror(root->left, root->right);
+        return Check(root->left, root->right);
     }
 };
