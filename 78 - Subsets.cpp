@@ -10,8 +10,11 @@
  1. Store the valid result
  2.1. Not choose, call helper()
  2.2. Choose, call helper()
- Time: O(n * 2^n), push to TWO (res & sub) vectors for n numbers
+ Time: O(n * 2^n), TWO options (choose/not choose) for n numbers
  Space: O(n * 2^n)
+
+ Follow up: 
+ 90 - Subsets II
 
 */
 
