@@ -1,24 +1,24 @@
 /*
- 141. Linked List Cycle (Easy)
+ 141. Linked List Cycle (E)
 
- Notes:
-    fast-slow pointer
-    1. Make slow pointer points to node
-    2. Make fast pointer points to node->next
-    When inside the cycle, because fast pointer walks two node at each iterate, it approaches slow pointer step by step.
-    If fast pointer catches up slow pointer, it means this linked list have cycle.
+ Approach 1 : Fast-Slow Pointer
+ 1. Make slow pointer points to node, fast pointer points to node->next
+ 2. If slow == fast: cycle exist
+    else: Move slow pointer 1 step foward, fast pointer 2 step foward
+ Time: O(n)
+ Space: O(1)
+
 */
 
+/* Approach 1 : Fast-Slow Pointer */
 class Solution {
 public:
     bool hasCycle(ListNode* head) {
-        if (!head)
-            return false;
+        if (!head) return false;
         ListNode* slow = head, * fast = head->next;
-        while (fast != nullptr && fast->next != nullptr)
+        while (fast && fast->next)
         {
-            if (slow == fast)
-                return true;
+            if (slow == fast) return true;
             slow = slow->next;
             fast = fast->next->next;
         }
