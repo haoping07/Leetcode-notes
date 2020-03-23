@@ -1,7 +1,7 @@
 /*
  90. Subsets II (M)
 
- Approach 1 : Backtracking
+ Approach 1 : DFS + Backtracking
  [basketwangCoding - https://youtu.be/rtFHxiQAICA]
  1. Store the valid result
  2.1. Not choose, call helper(..false)
@@ -17,7 +17,7 @@
 
 */
 
-/* Approach 1 : Backtracking */
+/* Approach 1 : DFS + Backtracking */
 class Solution {
 public:
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {

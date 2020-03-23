@@ -5,7 +5,7 @@
  Time: O(n * 2^n), push to TWO (res & sub) vectors for n numbers
  Space: O(n * 2^n)
 
- Approach 2 : Backtracking
+ Approach 2 : DFS + Backtracking
  [basketwangCoding - https://youtu.be/rtFHxiQAICA]
  1. Store the valid result
  2.1. Not choose, call helper()
