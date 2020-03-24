@@ -1,8 +1,13 @@
 /*
- 35. Search Insert Position
- Easy
+ 35. Search Insert Position (E)
+ 
+ Approach 1 : Binary Search
+ Time: O(logn)
+ Space: (1)
+
 */
 
+/* Approach 1 : Binary Search */
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
