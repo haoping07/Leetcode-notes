@@ -5,6 +5,12 @@
  Time: O(logn)
  Space: O(1)
 
+ MONO: Why move left to mid + 1 AND right to mid?
+ Mid will be the left one if the list size is even, so left should move foward to
+ not make loop endless (Keep edge movingin each round). Same thing to right, if
+ move right to mid - 1, this could occur endless loop if the list only have two
+ elements.
+
 */
 
 /* Approach 1 : Binary Search */
