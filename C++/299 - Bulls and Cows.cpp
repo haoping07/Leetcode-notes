@@ -1,7 +1,6 @@
 /*
  299. Bulls and Cows (E)
 
- Notes:
  Approach 1 :
  Use array and two For-loop.
  1. Iterates secret and guess at the same time. If two letter are the same, bull++.
@@ -17,9 +16,8 @@ class Solution {
 public:
     string getHint(string secret, string guess) {
         int bull = 0, cow = 0;
-        int cs[10] = { 0 }, cg[10] = { 0 };
-        for (int i = 0; i < secret.size(); i++)
-        {
+        int s[10] = { 0 }, g[10] = { 0 };
+        for (int i = 0; i < secret.size(); i++) {
             int x = secret[i] - '0';
             int y = guess[i] - '0';
             if (x == y) bull++;
@@ -28,7 +26,7 @@ public:
         }
 
         for (int i = 0; i < 10; i++)
-            cow += min(cs[i], cg[i]);
+            cow += min(s[i], g[i]);
 
         return to_string(bull) + "A" + to_string(cow - bull) + "B";
     }
