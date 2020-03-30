@@ -7,16 +7,15 @@
 
 */
 
-// Approach 1 :
+/* Approach 1 */
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
-        int start = 0;
-        for (int i = 0; i < nums.size(); i++)
-        {
-            if (val != nums[i])
-                nums[start++] = nums[i];
+        int slow = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] != val)
+                nums[slow++] = nums[i];
         }
-        return start;
+        return slow;
     }
 };
