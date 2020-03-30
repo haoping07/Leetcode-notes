@@ -19,14 +19,12 @@ class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
         if (nums.size() < 2 || k == 0) return;
-        k = k % nums.size();
+        k %= nums.size();
         int count = 0;
 
-        for (int i = 0; i < nums.size(); i++)
-        {
+        for (int i = 0; i < nums.size(); i++) {
             int startIdx = i, startVal = nums[i];
-            do
-            {
+            do {
                 int rightPos = (startIdx + k) % nums.size();
                 int tmp = nums[rightPos];
                 nums[rightPos] = startVal;
