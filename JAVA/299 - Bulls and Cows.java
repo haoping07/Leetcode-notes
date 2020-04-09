@@ -11,7 +11,7 @@
  Space: O(n)
 
  Approach 2 :
- Optimize approach 1 to only using one array
+ Optimize approach 1 to only using one array and one pass
  Time: O(n)
  Space: O(n)
 
@@ -43,27 +43,21 @@ class Solution {
 /* Approach 2 */
 class Solution {
     public String getHint(String secret, String guess) {
-        int[] count = new int[10];
+        int[] c = new int[10];
         int bull = 0, cow = 0;
         for (int i = 0; i < secret.length(); i++) {
-            if (secret.charAt(i) == guess.charAt(i)) {
+            if (secret.charAt(i) == guess.charAt(i))
                 bull++;
-            }
             else {
                 int d1 = secret.charAt(i) - '0';
-                if(count[d1] < 0) {
-                    cow++;
-                }
-                count[d1]++;
+                if (c[d1] < 0) cow++;
+                c[d1]++;
             
                 int d2 = guess.charAt(i) - '0';
-                if (count[d2] > 0) {
-                    cow++;
-                }
-                count[d2]--;
+                if (c[d2] > 0) cow++;
+                c[d2]--;
             }
         }
-        
         StringBuilder str = new StringBuilder();
         return str.append(bull).append("A").append(cow).append("B").toString();
     }
