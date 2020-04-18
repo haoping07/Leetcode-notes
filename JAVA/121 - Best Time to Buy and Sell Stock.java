@@ -17,7 +17,9 @@ class Solution {
         int maxp = 0;
         int minp = prices[0];
         for (int i = 1; i < prices.length; i++) {
+            // sell
             maxp = Math.max(maxp, prices[i] - minp);
+            // buy
             minp = Math.min(minp, prices[i]);
         }
         return maxp;
