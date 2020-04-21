@@ -33,7 +33,7 @@ public:
     }
 };
 
-// Approach 1 : Iteration
+// Approach 2 : Iteration
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
