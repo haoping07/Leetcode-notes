@@ -15,10 +15,8 @@ Approach 2 : Recursion
 class Solution {
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;
-        ListNode next = null;
-        while (head != null)
-        {
-            next = head.next;
+        while (head != null) {
+            ListNode next = head.next;
             head.next = prev;
             prev = head;
             head = next;
