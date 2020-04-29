@@ -2,8 +2,8 @@
  98. Validate Binary Search Tree (M)
 
  Approach 1 : 
- Record the low and high bound in each recursion, check if the tree is validate
- by compare the current node to the low and high bound.
+ Record the low and high boundary in each recursion, check if the tree is validate
+ by comparing the current node to the low and high boundary.
  Time: O(n)
  Space: O(n)
 
