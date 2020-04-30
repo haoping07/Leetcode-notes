@@ -3,7 +3,7 @@
  
  Approach 1 : Recursion + partition
  Use the middle element in array as root in each round and set the low/high boundary
- to for next recursion
+ for the next recursion
  Time: O(n)
  Space: O(n)
 
