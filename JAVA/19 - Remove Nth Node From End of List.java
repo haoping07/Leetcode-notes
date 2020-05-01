@@ -2,11 +2,9 @@
  19. Remove Nth Node From End of List (M)
 
  Approach 1 :
- 1. Make dummy node
- 2. Move head to n + 1 position from start
- 3. Make a newPtr point to dummy
- 4. Move head & newPtr foward till the head is null, the newPtr will point to
-    the n + 1 node from end
+ Move ptr1 from head to (n + 1) position, then make ptr2 point to dummy and 
+ follow the ptr1, while ptr1 points to null, the ptr2 will point to the previous 
+ node of Nthnode from end of list. Remove the node
  Time: O(n)
  Space: O(1)
 
@@ -22,14 +20,14 @@ class Solution {
         for (int i = 0; i < n; i++) 
             head = head.next;        
         
-        ListNode newPtr = dummy;
+        ListNode prev = dummy;
         
         while (head != null) {
             head = head.next;
-            newPtr = newPtr.next;
+            prev = prev.next;
         }
         
-        newPtr.next = newPtr.next.next;
+        prev.next = prev.next.next;
         return dummy.next; 
     }
 }
