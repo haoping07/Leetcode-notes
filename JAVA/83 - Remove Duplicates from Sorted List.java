@@ -2,12 +2,13 @@
  83. Remove Duplicates from Sorted List (E)
 
  Approach 1 : One pointer
- Look TWO nodes at once. If two nodes have same value, set first node's next to the next one.
- Else, move first node its next
+ Check if node's next exist, if exist, compare two nodes val and relink. 
  Time: O(n)
  Space: O(1)
 
- Approach 2 : Two pointers
+ Approach 2 : Slow-fast pointer
+ Compare two ptr val, if the val are different, relink the node.
+ If the val are the same, skip it.
  Time: O(n)
  Space:O(1)
 
