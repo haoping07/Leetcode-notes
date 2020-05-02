@@ -2,9 +2,10 @@
  160. Intersection of Two Linked Lists (E)
 
  Approach 1 :
- 1. Find the length of the two linklist
- 2. Iterate the long one from the head to the size of short one
- 3. Iterate two linklists, they same node they point to is the intersection  
+ Iterate two lists to find each length, then iterate again the list with longer
+ length till the remaining number of nodes is same as the length of the shorter list.
+ Iterate both iterate ptr till they point to the same node. The node will be the intersect
+ node.
  Time: O(len(headA) + len(headB))
  Space: O(1)
 
