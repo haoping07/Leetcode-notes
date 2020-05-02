@@ -2,9 +2,8 @@
  2. Add Two Numbers (M)
 
  Approach 1 :
- Do the addition process one by one and save the result to variable 'carry' in 
- each addition. carry % 10 is the value of new node, carry / 10 is the new carry
- that will be added to the next digit
+ Scan two lists nodes ony by one, the carry is the sum of the two nodes.
+ Use this carry to build the sum list.
  Time: O(max(l1, l2))
  Space: O(max(l1, l2))
 
