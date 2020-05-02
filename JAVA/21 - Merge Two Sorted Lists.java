@@ -2,6 +2,7 @@
  21. Merge Two Sorted Lists (E)
 
  Approach 1 :
+ Compare two lists nodes one by one. Link the list to the node with the lower value.
  Time: O(n)
  Space: O(1)
 
