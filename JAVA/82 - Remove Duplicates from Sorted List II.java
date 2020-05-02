@@ -5,7 +5,7 @@
  Use two pointers to scan the list, slow pointers always point to the previous node
  of the first duplicate node, fast pointer iterates through the duplicate node and
  stop at the last duplicate node. If no duplicate node in a iteration, move slow and
- fast pointer backward.
+ fast pointer foward.
  Time: O(n)
  Space: O(1)
 
