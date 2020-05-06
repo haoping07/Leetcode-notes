@@ -8,7 +8,7 @@
  Think: Why move left to mid + 1 AND right to mid?
  Mid will be the left one if the list size is even, so left should move foward to
  not make loop endless (Keep edge movingin each round). If move right to mid - 1,
- we can't get the answer because if the list only have two elements.
+ we can't get the answer if the list only have two elements.
 
 */
 
