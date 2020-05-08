@@ -1,5 +1,5 @@
 /*
- 153. Find Minimum in Rotated Sorted Array (M)
+ 153. Find Minimum in Rotated Sorted Array (M)
  
  Approach 1 : BS
  If the list isn't rotated, just return the first element.
