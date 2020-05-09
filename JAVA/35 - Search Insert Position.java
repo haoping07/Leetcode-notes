@@ -1,5 +1,5 @@
 /*
- 35. Search Insert Position (E)
+ 35. Search Insert Position (E)
  
  Approach 1 : Binary Search
  Time: O(logn)

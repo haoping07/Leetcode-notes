@@ -1,5 +1,5 @@
 /*
- 33. Search in Rotated Sorted Array (M)
+ 33. Search in Rotated Sorted Array (M)
  
  Approach 1 : 
  Scan the list, find the rotated range by comparing the mid and low value, then
