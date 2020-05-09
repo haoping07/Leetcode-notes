@@ -1,7 +1,7 @@
 /*
  349. Intersection of Two Arrays (E)
 
- Approach 1 : BS
+ Approach 1 : HashSet + BS
  Sort the nums1, then find the nums2's elements in nums1
  Time: O(nums2.length)
  Space: O(set.size())
@@ -15,7 +15,7 @@ class Solution {
         
         HashSet<Integer> set = new HashSet<Integer>();
         
-        // Find the nums2 elements in sorted num1
+        // Find the nums2's elements in sorted nums1
         Arrays.sort(nums1);
         for (int i = 0; i < nums2.length; i++) {
             if (set.contains(nums2[i])) continue;
@@ -24,9 +24,7 @@ class Solution {
         
         int[] res = new int[set.size()];
         int i = 0;
-        for (int x : set) {
-            res[i++] = x;
-        }
+        for (int x : set) res[i++] = x;
         
         return res;
     }
@@ -36,12 +34,10 @@ class Solution {
         while (l < r - 1) {
             m = l + (r - l) / 2;
             if (nums[m] == target) return true;
-            if (nums[m] > target) r = m;
-            else l = m;
+            if (nums[m] < target) l = m;
+            else r = m;
         }
         if (nums[l] == target || nums[r] == target) return true;
         return false;
     }
 }
-
-
