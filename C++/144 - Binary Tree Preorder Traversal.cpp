@@ -1,53 +1,50 @@
 /*
  144. Binary Tree Preorder Traversal (M)
 
- Approach 1 : Recursion
+ Approach 1: Recursion
  Time: O(n)
  Space: O(n)
 
- Approach 2: Iteration
+ Approach 2: DFS
+ Time: O(n)
+ Space: O(n)
+
+ Approach 3: BFS style DFS
  Time: O(n)
  Space: O(n)
 
 */
 
-/* Approach 1 : Recursion */
+// Approach 1
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
-        preorder(root);
+        vector<int> res;
+        DFS(root, res);
         return res;
     }
-
-    void preorder(TreeNode* root)
-    {
+    
+    void DFS(TreeNode* root, vector<int>& res) {
         if (!root) return;
         res.push_back(root->val);
-        preorder(root->left);
-        preorder(root->right);
+        DFS(root->left, res);
+        DFS(root->right, res);
     }
-
-private:
-    vector<int> res;
 };
 
-/* Approach 2 : Iteration 1 */
+// Approach 2
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
         stack<TreeNode*> todo;
         vector<int> res;
-
-        while (!todo.empty() || root)
-        {
-            if (root)
-            {
-                res.push_back(root->val);
+        while (!todo.empty() || root) {
+            if (root) {
                 todo.push(root);
+                res.push_back(root->val);
                 root = root->left;
             }
-            else
-            {
+            else {
                 root = todo.top();
                 todo.pop();
                 root = root->right;
@@ -57,7 +54,7 @@ public:
     }
 };
 
-/* Approach 2 : Iteration 2 */
+// Approach 3
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
@@ -65,19 +62,13 @@ public:
         vector<int> res;
         stack<TreeNode*> todo;
         todo.push(root);
-
-        while (!todo.empty())
-        {
+        while (!todo.empty()) {
             root = todo.top();
             todo.pop();
             res.push_back(root->val);
-
-            if (root->right)
-                todo.push(root->right);
-            if (root->left)
-                todo.push(root->left);
+            if (root->right) todo.push(root->right);
+            if (root->left) todo.push(root->left);
         }
-
         return res;
     }
 };
