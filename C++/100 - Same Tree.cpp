@@ -1,17 +1,17 @@
 /*
  100. Same Tree (E)
 
- Approach 1 : BFS
+ Approach 1: BFS
  Time: O(n)
  Space: O(n)
 
- Approach 2 : DFS
+ Approach 2: DFS
  Time: O(n)
  Space: O(n)
 
 */
 
-/* Approach 1 : BFS */
+// Approach 1
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
@@ -39,7 +39,7 @@ public:
 };
 
 
-/* Approach 2 : DFS */
+// Approach 2
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
