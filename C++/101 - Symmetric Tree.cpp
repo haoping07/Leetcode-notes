@@ -3,17 +3,17 @@
 
  Ref. 100
 
- Approach 1 : BFS
+ Approach 1: BFS
  Time: O(n)
  Space: O(n)
 
- Approach 2 : DFS
+ Approach 2: DFS
  Time: O(n)
  Space: O(n)
 
 */
 
-/* Approach 1 : BFS */
+// Approach 1
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
@@ -21,29 +21,28 @@ public:
         queue<TreeNode*> todo;
         todo.push(root->left);
         todo.push(root->right);
-        TreeNode* left = nullptr;
-        TreeNode* right = nullptr;
-        while (!todo.empty())
-        {
-            left = todo.front();
+        TreeNode* p = nullptr;
+        TreeNode* q = nullptr;
+        while (!todo.empty()) {
+            p = todo.front();
             todo.pop();
-            right = todo.front();
+            q = todo.front();
             todo.pop();
-
-            if (!left && !right) continue;
-            if (!left || !right) return false;
-            if (left->val != right->val) return false;
-
-            todo.push(left->left);
-            todo.push(right->right);
-            todo.push(left->right);
-            todo.push(right->left);
+            
+            if (!p && !q) continue;
+            if (!p || !q) return false;
+            if (p->val != q->val) return false;
+            
+            todo.push(p->left);
+            todo.push(q->right);
+            todo.push(p->right);
+            todo.push(q->left);
         }
         return true;
     }
 };
 
-/* Approach 2 : DFS */
+// Approach 2
 class Solution {
 public:
     bool Check(TreeNode* l, TreeNode* r)
