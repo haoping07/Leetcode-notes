@@ -1,39 +1,17 @@
 /*
  226. Invert Binary Tree (E)
 
- Notes:
- Approach 1 : Recursion
+ Approach 1: BFS
  Time: O(n)
  Space: O(n)
 
- Approach 2 : Iteration
+ Approach 2: DFS
  Time: O(n)
  Space: O(n)
 
 */
 
-// Approach 1 : Recursion
-class Solution {
-public:
-    TreeNode* invertTree(TreeNode* root) {
-        DFSInvert(root);
-        return root;
-    }
-
-    void DFSInvert(TreeNode* root)
-    {
-        if (root)
-        {
-            TreeNode* tmp = root->left;
-            root->left = root->right;
-            root->right = tmp;
-            DFSInvert(root->left);
-            DFSInvert(root->right);
-        }
-    }
-};
-
-// Approach 2 : Iteration
+// Approach 1
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
@@ -55,5 +33,26 @@ public:
             }
         }
         return root;
+    }
+};
+
+// Approach 2
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        DFSInvert(root);
+        return root;
+    }
+
+    void DFSInvert(TreeNode* root)
+    {
+        if (root)
+        {
+            TreeNode* tmp = root->left;
+            root->left = root->right;
+            root->right = tmp;
+            DFSInvert(root->left);
+            DFSInvert(root->right);
+        }
     }
 };
