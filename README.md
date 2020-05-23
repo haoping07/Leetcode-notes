@@ -1,4 +1,4 @@
-# Leetcode-notes
+### Leetcode-notes
 My accepted C++/JAVA solution
 ### Reference:
  - Leetcode discussion
