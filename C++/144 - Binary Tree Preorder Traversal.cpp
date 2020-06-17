@@ -1,21 +1,21 @@
 /*
  144. Binary Tree Preorder Traversal (M)
 
- Approach 1: Recursion
+ A1: Recursion
  Time: O(n)
  Space: O(n)
 
- Approach 2: DFS
+ A2: DFS
  Time: O(n)
  Space: O(n)
 
- Approach 3: BFS style DFS
+ A3: BFS style DFS
  Time: O(n)
  Space: O(n)
 
 */
 
-// Approach 1
+// A1
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
@@ -32,7 +32,7 @@ public:
     }
 };
 
-// Approach 2
+// A2
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
@@ -54,7 +54,7 @@ public:
     }
 };
 
-// Approach 3
+// A3
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {

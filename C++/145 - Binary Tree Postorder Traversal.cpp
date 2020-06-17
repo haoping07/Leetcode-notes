@@ -1,11 +1,11 @@
 /*
  145. Binary Tree Postorder Traversal (H)
 
- Approach 1: Recursion
+ A1: Recursion
  Time: O(n)
  Space: O(n)
 
- Approach 2: DFS
+ A2: DFS
  1. Traverse to the end of the left child.
  2. Peek parent
    2.1. If parent->right exist and havn't been visited yet, move root to parent->right and goto Step 1
@@ -15,7 +15,7 @@
 
 */
 
-// Approach 1
+// A1
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
@@ -32,7 +32,7 @@ public:
     }
 };
 
-// Approach 2
+// A2
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {

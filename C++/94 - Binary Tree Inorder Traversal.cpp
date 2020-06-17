@@ -1,17 +1,17 @@
 /*
  94. Binary Tree Inorder Traversal (M)
  
- Approach 1: Recursion
+ A1: Recursion
  Time: O(n)
  Space: O(n)
 
- Approach 2: DFS
+ A2: DFS
  Time: O(n)
  Space: O(n)
 
 */
 
-// Approach 1
+// A1
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
@@ -28,7 +28,7 @@ public:
     }
 };
 
-// Approach 2
+// A2
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
