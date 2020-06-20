@@ -1,17 +1,19 @@
 /*
  100. Same Tree (E)
 
- Approach 1: BFS
+ A: BFS
+ Push the p and q nodes together into queue, compare two nodes and push their
+ children into queue respectively.
  Time: O(n)
  Space: O(n)
 
- Approach 2: DFS
+ A2: DFS
  Time: O(n)
  Space: O(n)
 
 */
 
-// Approach 1
+// A1
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
@@ -39,7 +41,7 @@ public:
 };
 
 
-// Approach 2
+// A2
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
