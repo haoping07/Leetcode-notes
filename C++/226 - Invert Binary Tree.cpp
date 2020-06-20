@@ -1,6 +1,10 @@
 /*
  226. Invert Binary Tree (E)
 
+ Check if root exist
+  - If yes, swap its children
+  - If no, do nothing
+
  A1: BFS
  Time: O(n)
  Space: O(n)
