@@ -5,7 +5,7 @@
  Time: O(n)
  Space: O(n)
 
- A2: DFS(btm-up)
+ A2: BFS (top-down)
  Time: O(n)
  Space: O(n)
 
@@ -77,6 +77,3 @@ public:
         return count;
     }
 };
-
-
-
