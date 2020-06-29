@@ -1,7 +1,7 @@
 /*
  100. Same Tree (E)
 
- A: BFS
+ A1: BFS
  Push the p and q nodes together into queue, compare two nodes and push their
  children into queue respectively.
  Time: O(n)
