@@ -24,23 +24,23 @@ public:
         queue<TreeNode *> todo;
         todo.push(root);
         TreeNode *entry = nullptr;
+        
         while (!todo.empty())
         {
             entry = todo.front();
             todo.pop();
-            if (entry)
-            {
-                todo.push(entry->left);
-                todo.push(entry->right);
 
-                TreeNode *tmp = entry->left;
-                entry->left = entry->right;
-                entry->right = tmp;
-            }
+            if (entry->left) todo.push(entry->left);
+            if (entry->right) todo.push(entry->right);
+
+            TreeNode *tmp = entry->left;
+            entry->left = entry->right;
+            entry->right = tmp;
         }
         return root;
     }
 };
+
 
 // A2
 class Solution
@@ -55,9 +55,11 @@ public:
     void DFSInvert(TreeNode *root)
     {
         if (!root) return;
+
         TreeNode *tmp = root->left;
         root->left = root->right;
         root->right = tmp;
+
         DFSInvert(root->left);
         DFSInvert(root->right);
     }
