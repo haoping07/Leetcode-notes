@@ -1,5 +1,5 @@
 /*
- 226.Â Invert Binary Tree (E)
+ 226. A Invert Binary Tree (E)
 
  Check if root exist
   - If yes, swap its children
