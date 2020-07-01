@@ -1,16 +1,16 @@
 /*
  257. Binary Tree Paths (E)
 
- A1: Preorder(top-down)
- Check the left and right child, if exist, add the path string and move to it.
+ A1: Preorder (top-down)
+ Check left and right child, if exist, add the path string and move to it.
  Time: O(n)
- Space: O(leaf)
+ Space: O(n + leaf); n: Two queues for all nodes; leaf: vector for answer
 
- A2: Preorder(down-top)
+ A2: Postorder (btm-up)
  Start from the leaf, gather all its left and right path plus itself and 
  return upward 
- Time: O(n);
- Space: O(n)
+ Time: O(depth * n); Iterate all nodes record in each depth
+ Space: O(3n); Three vecotors for all left, right child and answer
 
 */
 
@@ -73,7 +73,7 @@ public:
         for (string& s : l) paths.push_back(to_string(root->val) + "->" + s);
         for (string& s : r) paths.push_back(to_string(root->val) + "->" + s);
 
-        // If the nodes is a leaf, just add the current node only
+        // If the nodes is a leaf, add the current node only
         if (l.size() == 0 && r.size() == 0) paths.push_back(to_string(root->val));
 
         return paths;
