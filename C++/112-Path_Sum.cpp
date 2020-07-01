@@ -37,8 +37,8 @@ public:
             sums.pop();
             
             // If the to-do node is a leaf, check if fullfill the given sum
-            if (!root->left && !root->right) {
-                if (sum == curSum) return true;
+            if (!root->left && !root->right && curSum == sum) {
+                return true;
             }
             
             // If the to-do node is not a leaf, update the queue
@@ -62,8 +62,10 @@ public:
     bool hasPathSum(TreeNode* root, int sum) {
         // Use leaf to stop the recursion because we can't know the entry point
         if (!root) return false;
-        if (!root->left && !root->right && root->val == sum) 
+        if (!root->left && !root->right && root->val == sum) { 
             return true;
-        else return hasPathSum(root->left, sum - root->val) || hasPathSum(root->right, sum - root->val);
+        }
+        return hasPathSum(root->left, sum - root->val) 
+            || hasPathSum(root->right, sum - root->val);
     }
 };
