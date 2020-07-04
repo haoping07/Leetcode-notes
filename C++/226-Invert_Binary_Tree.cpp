@@ -21,21 +21,22 @@ class Solution
 public:
     TreeNode *invertTree(TreeNode *root)
     {
+        if (!root) return root;
         queue<TreeNode *> todo;
         todo.push(root);
-        TreeNode *entry = nullptr;
+        TreeNode *ptr = nullptr;
         
         while (!todo.empty())
         {
-            entry = todo.front();
+            ptr = todo.front();
             todo.pop();
 
-            if (entry->left) todo.push(entry->left);
-            if (entry->right) todo.push(entry->right);
+            if (ptr->left) todo.push(ptr->left);
+            if (ptr->right) todo.push(ptr->right);
 
-            TreeNode *tmp = entry->left;
-            entry->left = entry->right;
-            entry->right = tmp;
+            TreeNode *tmp = ptr->left;
+            ptr->left = ptr->right;
+            ptr->right = tmp;
         }
         return root;
     }
