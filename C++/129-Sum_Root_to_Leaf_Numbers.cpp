@@ -1,10 +1,10 @@
 /*
- 129. Sum Root to Leaf Numbers (M)
+ 129. Sum Root to Leaf Numbers (M)
 
  A1: DFS
  DFS the tree and save the node value, if the node is a leaf, add it to the total sum.
  Time: O(n)
- Space: O(n)
+ Space: O(n); Pass curSum in each round(node)
 
 */
 
