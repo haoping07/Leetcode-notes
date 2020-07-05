@@ -1,27 +1,27 @@
 /*
- 113. Path Sum II (M)
+ 113. Path Sum II (M)
 
  A1: Preorder (top-down) recursion
  Preorder the tree, use a vector to store the current path, if fullfill the
  given sum, save the path to result
  Time: O(n)
- Space: O(depth)
+ Space: O(leaf)
 
 */
 
+// A1
 class Solution {
 public:
     vector<vector<int>> pathSum(TreeNode* root, int sum) {
         vector<vector<int>> res;
         vector<int> sub;
-        
         pathSum(root, sum, sub, res);
         return res;
     }
     
     void pathSum(TreeNode* root, int sum, vector<int>& sub, vector<vector<int>>& res) {
         if (!root) return;
-        
+
         // Add the current node in to path list
         sub.push_back(root->val);
         
