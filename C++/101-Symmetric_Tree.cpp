@@ -1,19 +1,15 @@
 /*
  101. Symmetric Tree (E)
 
- Ref.100
+ BFS
+ O(n),O(n)
 
- A1: BFS
- Time: O(n)
- Space: O(n)
-
- A2: DFS
- Time: O(n)
- Space: O(n)
+ DFS
+ O(n),O(n)
 
 */
 
-// A1
+// BFS
 class Solution
 {
 public:
@@ -49,7 +45,7 @@ public:
     }
 };
 
-// A2
+// DFS
 class Solution
 {
 public:
