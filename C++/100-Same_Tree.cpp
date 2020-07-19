@@ -1,23 +1,23 @@
 /*
  100. Same Tree (E)
 
- A1: BFS
- Push the p and q nodes together into queue, compare two nodes and push their
- children into queue respectively.
- Time: O(n)
- Space: O(n)
+ BFS
+ Compare two nodes and push their children into queue, then pop out and 
+ do the compare again till the end
+ O(n),O(n)
 
- A2: DFS
- Time: O(n)
- Space: O(n)
+ DFS
+ O(n),O(n)
 
 */
 
-// A1
-class Solution {
+// BFS
+class Solution
+{
 public:
-    bool isSameTree(TreeNode* p, TreeNode* q) {
-        queue<TreeNode*> todo;
+    bool isSameTree(TreeNode *p, TreeNode *q)
+    {
+        queue<TreeNode *> todo;
         todo.push(p);
         todo.push(q);
         while (!todo.empty())
@@ -40,11 +40,12 @@ public:
     }
 };
 
-
-// A2
-class Solution {
+// DFS
+class Solution
+{
 public:
-    bool isSameTree(TreeNode* p, TreeNode* q) {
+    bool isSameTree(TreeNode *p, TreeNode *q)
+    {
         if (!p && !q) return true;
         if (!p || !q) return false;
         if (p->val != q->val) return false;
