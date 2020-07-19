@@ -1,21 +1,18 @@
 /*
  144. Binary Tree Preorder Traversal (M)
 
- A1: Recursion
- Time: O(n)
- Space: O(n)
+ Recursion
+ O(n),O(n)
 
- A2: DFS
- Time: O(n)
- Space: O(n)
+ DFS
+ O(n),O(n)
 
- A3: BFS style DFS
- Time: O(n)
- Space: O(n)
+ BFS style DFS
+ O(n),O(n)
 
 */
 
-// A1
+// Recursion
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
@@ -32,29 +29,27 @@ public:
     }
 };
 
-// A2
+// DFS
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> ret;
         stack<TreeNode*> todo;
-        vector<int> res;
         while (!todo.empty() || root) {
-            if (root) {
+            while (root) {
+                ret.push_back(root->val);
                 todo.push(root);
-                res.push_back(root->val);
                 root = root->left;
             }
-            else {
-                root = todo.top();
-                todo.pop();
-                root = root->right;
-            }
+            root = todo.top();
+            todo.pop();
+            root = root->right;
         }
-        return res;
+        return ret;
     }
 };
 
-// A3
+// BFS style DFS
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
