@@ -1,51 +1,47 @@
 /*
  94. Binary Tree Inorder Traversal (M)
  
- A1: Recursion
- Time: O(n)
- Space: O(n)
+ Recursion
+ O(n),O(n)
 
- A2: DFS
- Time: O(n)
- Space: O(n)
+ DFS
+ O(n),O(n)
 
 */
 
-// A1
+// Recursion
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-        vector<int> res;
-        inorder(root, res);
-        return res;
+        vector<int> ret;
+        Inorder(root, ret);
+        return ret;
     }
     
-    void inorder(TreeNode* root, vector<int>& res) {
+    void Inorder(TreeNode* root, vector<int>& ret) {
         if (!root) return;
-        inorder(root->left, res);
-        res.push_back(root->val);
-        inorder(root->right, res);
+        Inorder(root->left, ret);
+        ret.push_back(root->val);
+        Inorder(root->right, ret);
     }
 };
 
-// A2
+// DFS
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-        vector<int> res;
+        vector<int> ret;
         stack<TreeNode*> todo;
         while (!todo.empty() || root) {
-            if (root) {
+            while (root) {
                 todo.push(root);
                 root = root->left;
             }
-            else {
-                root = todo.top();
-                todo.pop();
-                res.push_back(root->val);
-                root = root->right;
-            }
+            root = todo.top();
+            todo.pop();
+            ret.push_back(root->val);
+            root = root->right;
         }
-        return res;
+        return ret;
     }
 };
