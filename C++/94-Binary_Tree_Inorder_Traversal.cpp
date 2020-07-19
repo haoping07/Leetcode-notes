@@ -10,16 +10,20 @@
 */
 
 // Recursion
-class Solution {
+class Solution
+{
 public:
-    vector<int> inorderTraversal(TreeNode* root) {
+    vector<int> inorderTraversal(TreeNode *root)
+    {
         vector<int> ret;
         Inorder(root, ret);
         return ret;
     }
-    
-    void Inorder(TreeNode* root, vector<int>& ret) {
-        if (!root) return;
+
+    void Inorder(TreeNode *root, vector<int> &ret)
+    {
+        if (!root)
+            return;
         Inorder(root->left, ret);
         ret.push_back(root->val);
         Inorder(root->right, ret);
@@ -27,13 +31,17 @@ public:
 };
 
 // DFS
-class Solution {
+class Solution
+{
 public:
-    vector<int> inorderTraversal(TreeNode* root) {
+    vector<int> inorderTraversal(TreeNode *root)
+    {
         vector<int> ret;
-        stack<TreeNode*> todo;
-        while (!todo.empty() || root) {
-            while (root) {
+        stack<TreeNode *> todo;
+        while (!todo.empty() || root)
+        {
+            while (root)
+            {
                 todo.push(root);
                 root = root->left;
             }
