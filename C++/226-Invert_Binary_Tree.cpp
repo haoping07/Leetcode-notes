@@ -1,21 +1,18 @@
 /*
- 226. A Invert Binary Tree (E)
+ 226. Invert Binary Tree (E)
 
- Check if root exist
-  - If yes, swap its children
-  - If no, do nothing
+ Swap the current node children, if their children exist, enter them and swap
+ their children.
 
- A1: BFS
- Time: O(n)
- Space: O(n)
+ BFS
+ O(n),O(n)
 
- A2: DFS
- Time: O(n)
- Space: O(n)
+ DFS
+ O(n),O(n)
 
 */
 
-// A1
+// BFS
 class Solution
 {
 public:
@@ -25,7 +22,6 @@ public:
         queue<TreeNode *> todo;
         todo.push(root);
         TreeNode *ptr = nullptr;
-        
         while (!todo.empty())
         {
             ptr = todo.front();
@@ -42,8 +38,7 @@ public:
     }
 };
 
-
-// A2
+// DFS
 class Solution
 {
 public:
@@ -56,11 +51,9 @@ public:
     void DFSInvert(TreeNode *root)
     {
         if (!root) return;
-
         TreeNode *tmp = root->left;
         root->left = root->right;
         root->right = tmp;
-
         DFSInvert(root->left);
         DFSInvert(root->right);
     }
