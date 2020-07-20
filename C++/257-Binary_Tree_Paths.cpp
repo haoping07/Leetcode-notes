@@ -1,78 +1,66 @@
 /*
  257. Binary Tree Paths (E)
 
- A1: Preorder (top-down)
+ Preorder (top-down)
  Check left and right child, if exist, add the path string and move to it.
- Time: O(n)
- Space: O(n + leaf); n: Two queues for all nodes; leaf: vector for answer
+ T:O(n)
+ S:O(n + leaf); n: Two queues for all nodes; leaf: vector for answer
 
- A2: Postorder (btm-up)
+ Postorder (btm-up)
  Start from the leaf, gather all its left and right path plus itself and 
  return upward 
- Time: O(depth * n); Iterate all nodes record in each depth
- Space: O(3n); Three vecotors for all left, right child and answer
+ T:O(depth * n); Iterate all nodes record in each depth
+ S:O(3n); Three vecotors for all left, right child and answer
 
 */
 
-// A1
+// Preorder (top-down)
 class Solution {
 public:
     vector<string> binaryTreePaths(TreeNode* root) {
         if (!root) return {};
-        vector<string> res;
-
-        // Queue for the to-do nodes
+        vector<string> ret;
+        // Queues for todo node and the current path 
         queue<TreeNode*> todo;
-        // Queue for the path strings
         queue<string> paths;
-
-        // Init the algo
         todo.push(root);
         paths.push(to_string(root->val));
-
+        
         while (!todo.empty()) {
             root = todo.front();
             todo.pop();
             string path = paths.front();
             paths.pop();
-            
-            // If the left child exist, add the path and to-do node
             if (root->left) {
-                paths.push(path + "->" + to_string(root->left->val));
                 todo.push(root->left);
+                paths.push(path + "->" + to_string(root->left->val));
             }
-            // So does the right child
             if (root->right) {
-                paths.push(path + "->" + to_string(root->right->val));
                 todo.push(root->right);
+                paths.push(path + "->" + to_string(root->right->val));
             }
-            // If the leaf node, save the path to the result
             if (!root->left && !root->right) {
-                res.push_back(path);
+                ret.push_back(path);
             }
         }
-        return res;
+        return ret;
     }
 };
 
-
-// A2
+// Postorder (btm-up)
 class Solution {
 public:
     vector<string> binaryTreePaths(TreeNode* root) {
         if (!root) return {};
         vector<string> l, r, paths;
-
-        // Gather all left paths
+        // Get left and right paths
         l = binaryTreePaths(root->left);
-
-        // Gather all right paths
         r = binaryTreePaths(root->right);
 
-        // Add the current node to the paths
+        // Add current node to the paths
         for (string& s : l) paths.push_back(to_string(root->val) + "->" + s);
         for (string& s : r) paths.push_back(to_string(root->val) + "->" + s);
-
+        
         // If the nodes is a leaf, add the current node only
         if (l.size() == 0 && r.size() == 0) paths.push_back(to_string(root->val));
 
